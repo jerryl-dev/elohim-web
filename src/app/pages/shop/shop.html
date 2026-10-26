@@ -1,0 +1,51 @@
+<h2>Shop</h2>
+
+<form class="search" (ngSubmit)="onSearch()">
+  <input type="search" name="search" placeholder="Search products..."
+         [(ngModel)]="searchText" />
+  <button type="submit">Search</button>
+  @if (appliedSearch()) {
+    <button type="button" (click)="clearSearch()">Clear</button>
+  }
+</form>
+
+<div class="categories">
+  <button type="button"
+          [class.active]="selectedCategory() === ''"
+          (click)="selectCategory('')">All</button>
+
+  @for (category of categories(); track category.id) {
+    <button type="button"
+            [class.active]="selectedCategory() === category.slug"
+            (click)="selectCategory(category.slug)">
+      {{ category.name }}
+    </button>
+  }
+</div>
+
+@if (loading()) {
+  <p>Loading products...</p>
+} @else if (error()) {
+  <p class="error">{{ error() }}</p>
+} @else if (products().length === 0) {
+  <p>No products found.</p>
+} @else {
+  <div class="grid">
+    @for (product of products(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+}
+
+@if (totalPages() > 1) {
+  <nav class="pager">
+    <button type="button" (click)="goToPage(page() - 1)" [disabled]="page() === 0">
+      Previous
+    </button>
+    <span>Page {{ page() + 1 }} of {{ totalPages() }}</span>
+    <button type="button" (click)="goToPage(page() + 1)"
+            [disabled]="page() + 1 >= totalPages()">
+      Next
+    </button>
+  </nav>
+}

@@ -1,0 +1,22 @@
+<h2>Login</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <label>
+    Email
+    <input type="email" name="email" [(ngModel)]="email" required />
+  </label>
+
+  <label>
+    Password
+    <input type="password" name="password" [(ngModel)]="password" required />
+  </label>
+
+  <button type="submit" [disabled]="loading()">
+    {{ loading() ? 'Logging in...' : 'Login' }}
+  </button>
+
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  }
+</form>
+<p>No account yet? <a routerLink="/register">Register</a></p>

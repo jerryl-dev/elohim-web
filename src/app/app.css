@@ -1,0 +1,24 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+main {
+  padding: 20px;
+}

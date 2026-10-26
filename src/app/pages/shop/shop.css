@@ -1,0 +1,41 @@
+.search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.search input {
+  flex: 1;
+  max-width: 360px;
+  padding: 6px 10px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.categories button.active {
+  background: #222;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.pager {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.error {
+  color: crimson;
+}

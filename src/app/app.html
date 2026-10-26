@@ -1,0 +1,19 @@
+<header>
+  <a routerLink="/" class="brand">{{ companyName }}</a>
+
+  <nav>
+    @if (auth.currentUser(); as user) {
+      <span>Hello, {{ user.fullName }}</span>
+      <a routerLink="/account">My account</a>
+      <button type="button" (click)="logout()">Logout</button>
+    } @else {
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+      <a routerLink="/shop">Shop</a>
+    }
+  </nav>
+</header>
+
+<main>
+  <router-outlet />
+</main>

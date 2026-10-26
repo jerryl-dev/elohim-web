@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://42131e7b11371f62-154-159-237-195.serveousercontent.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

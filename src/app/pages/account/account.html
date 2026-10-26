@@ -1,0 +1,7 @@
+<h2>My account</h2>
+
+@if (auth.currentUser(); as user) {
+  <p><strong>Name:</strong> {{ user.fullName }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Role:</strong> {{ user.role }}</p>
+}

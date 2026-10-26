@@ -1,0 +1,60 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+img,
+.placeholder {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.placeholder {
+  background: #f0f0f0;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+.specs {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 0;
+}
+
+.price {
+  font-weight: bold;
+  margin: 0;
+}
+
+.stock {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.in {
+  color: green;
+}
+
+.out {
+  color: crimson;
+}
