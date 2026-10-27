@@ -1,0 +1,54 @@
+.detail {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 1fr;
+  gap: 24px;
+  max-width: 900px;
+}
+
+img,
+.placeholder {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.placeholder {
+  background: #f0f0f0;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category {
+  color: #666;
+  margin: 0;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.specs {
+  white-space: pre-line;
+}
+
+.in {
+  color: green;
+}
+
+.out {
+  color: crimson;
+}
+
+.error {
+  color: crimson;
+}
+
+@media (max-width: 640px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+}

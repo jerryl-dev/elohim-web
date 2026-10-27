@@ -29,13 +29,20 @@ export class AuthService {
       .post<UserResponse>(`${AUTH_URL}/refresh`, {})
       .pipe(tap(user => this.currentUser.set(user)));
   }
-  restoreSession(): Observable<UserResponse | null> {
-    return this.refresh().pipe(catchError(() => of(null)));
-  }
 
   logout(): Observable<void> {
     return this.http
       .post<void>(`${AUTH_URL}/logout`, {})
       .pipe(tap(() => this.currentUser.set(null)));
+  }
+
+  getMe(): Observable<UserResponse> {
+    return this.http
+      .get<UserResponse>('/api/users/me')
+      .pipe(tap(user => this.currentUser.set(user)));
+  }
+
+  restoreSession(): Observable<UserResponse | null> {
+    return this.getMe().pipe(catchError(() => of(null)));
   }
 }

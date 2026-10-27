@@ -10,6 +10,7 @@ export interface ProductQuery {
   size?: number;
   category?: string;
   q?: string;
+  featured?: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +24,12 @@ export class ProductService {
     if (query.size !== undefined) params = params.set('size', query.size);
     if (query.category) params = params.set('category', query.category);
     if (query.q) params = params.set('q', query.q);
+    if (query.featured !== undefined) params = params.set('featured', query.featured);
 
     return this.http.get<Page<Product>>('/api/products', { params });
+  }
+
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`/api/products/${id}`);
   }
 }

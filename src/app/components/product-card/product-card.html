@@ -6,7 +6,9 @@
   }
 
   <p class="category">{{ product().category.name }}</p>
-  <h3>{{ product().name }}</h3>
+   <h3>
+    <a [routerLink]="['/shop', product().id]">{{ product().name }}</a>
+  </h3>
 
   @if (product().specs) {
     <p class="specs">{{ product().specs }}</p>
