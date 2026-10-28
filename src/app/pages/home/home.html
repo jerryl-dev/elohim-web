@@ -1,0 +1,37 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow">Elohim Computers</p>
+    <h1>Your Trusted Technology Partner</h1>
+    <p class="lead">
+      Quality laptops, desktops, printers and networking equipment,
+      backed by expert repair and IT support.
+    </p>
+    <div class="actions">
+      <a routerLink="/shop" class="btn btn-primary">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <h2>Featured products</h2>
+    <a routerLink="/shop">View all &rarr;</a>
+  </div>
+
+  @if (loading()) {
+    <p>Loading featured products...</p>
+  }  @if (loading()) {
+    <p>Loading featured products...</p>
+  } @else if (failed()) {
+    <p>We couldn't load featured products right now. Please try again shortly.</p>
+  } @else if (featured().length === 0) 
+  {} @else if (featured().length === 0) {
+    <p>New products are coming soon.</p>
+  } @else {
+    <div class="grid">
+      @for (product of featured(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  }
+</section>

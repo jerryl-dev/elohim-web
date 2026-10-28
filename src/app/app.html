@@ -1,19 +1,48 @@
-<header>
-  <a routerLink="/" class="brand">{{ companyName }}</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a routerLink="/" class="brand">{{ companyName }}</a>
 
-  <nav>
-    @if (auth.currentUser(); as user) {
-      <span>Hello, {{ user.fullName }}</span>
-      <a routerLink="/account">My account</a>
-      <button type="button" (click)="logout()">Logout</button>
-    } @else {
-      <a routerLink="/login">Login</a>
-      <a routerLink="/register">Register</a>
-      <a routerLink="/shop">Shop</a>
-    }
-  </nav>
+    <nav class="main-nav">
+      <a routerLink="/" routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/shop" routerLinkActive="active">Shop</a>
+      <a routerLink="/services" routerLinkActive="active">Services</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+
+    <div class="user-nav">
+      @if (auth.currentUser(); as user) {
+        <span class="greeting">Hi, {{ user.fullName }}</span>
+        <a routerLink="/account" routerLinkActive="active">My account</a>
+        <button type="button" class="btn btn-outline btn-sm" (click)="logout()">
+          Logout
+        </button>
+      } @else {
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/register" class="btn btn-primary btn-sm">Register</a>
+      }
+    </div>
+  </div>
 </header>
 
 <main>
   <router-outlet />
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>{{ companyName }}</strong>
+      <p>Your Trusted Technology Partner</p>
+    </div>
+
+    <nav class="footer-links">
+      <a routerLink="/">Home</a>
+      <a routerLink="/shop">Shop</a>
+      <a routerLink="/services">Services</a>
+      <a routerLink="/about">About</a>
+    </nav>
+
+    <p class="copy">&copy; {{ year }} {{ companyName }}. All rights reserved.</p>
+  </div>
+</footer>

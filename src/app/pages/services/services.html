@@ -1,0 +1,25 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Our services</h1>
+    <p>Expert help for your computers, network and data.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid">
+      @for (service of services; track service.slug) {
+        <article class="service">
+          <span class="icon" aria-hidden="true">{{ service.icon }}</span>
+          <h2>{{ service.title }}</h2>
+          <p>{{ service.description }}</p>
+          <a class="btn btn-outline btn-sm"
+             routerLink="/contact"
+             [queryParams]="{ service: service.slug }">
+            Request this service
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

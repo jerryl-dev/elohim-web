@@ -1,1 +1,162 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f7fa;
+  --color-text: #111827;
+  --color-muted: #5b6573;
+  --color-border: #e2e6ec;
+  --color-dark: #0b1220;
+  --color-dark-soft: #162036;
+  --color-on-dark: #e8edf5;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --radius: 10px;
+  --container: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Centered content column used by every page section */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* The existing pages get the same centered column automatically */
+app-shop,
+app-login,
+app-register,
+app-account,
+app-product-detail {
+  display: block;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* Form controls */
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+button:hover {
+  background: var(--color-surface);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input {
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Reusable button styles: <a class="btn btn-primary"> or <button class="btn ..."> */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+/* Banner at the top of inner pages (About, Services, ...) */
+.page-hero {
+  background: linear-gradient(135deg, var(--color-dark), var(--color-dark-soft));
+  color: var(--color-on-dark);
+  padding: 56px 0;
+}
+
+.page-hero h1 {
+  margin-bottom: 8px;
+}
+
+.page-hero p {
+  margin: 0;
+  max-width: 60ch;
+  color: #c5cfdd;
+}
+
+/* A horizontal band of content; add .alt for a light grey background */
+.section {
+  padding-block: 48px;
+}
+
+.section.alt {
+  background: var(--color-surface);
+}
