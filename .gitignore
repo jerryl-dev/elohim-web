@@ -42,3 +42,12 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+#Local proxy settings(each developer has their own tunnel link)
+proxy.conf.json
+
+#Secret and environment files
+.env
+.env.*
+*.pem
+*.key
